@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Auth from './component/Auth/Auth';
+import Dashboard from './component/Dashboard/Dashboard';
+import Favorites from './component/Favorites/Favorites';
+import Form from './component/Form/Form';
+import Nav from './component/Nav/Nav';
+import Newsletter from './component/Newsletter/Newsletter';
+import Results from './component/Results/Results';
+
 
 class App extends Component {
   render() {
@@ -10,9 +18,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <Auth />
+          <Dashboard />
+          <Favorites />
+          <Form />
+          <Nav />
+          <Newsletter />
+          <Results />
       </div>
     );
   }

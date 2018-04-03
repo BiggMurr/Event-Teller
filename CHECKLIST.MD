@@ -22,4 +22,17 @@ Going off of SIM 3
         } -->
 
     --
-    created a functional component for the 
+    created a functional component for the Nav Component then returned 'Nav' in the <div>
+    Example:
+        <!-- import React, { Component } from 'react';
+        import { Link } from 'react-router-dom';
+
+        export default function Nav() {
+            return(
+                <div>
+                    NAV
+                </div>
+            )
+        } -->
+
+    imported the Auth, Dashboard, Favorites, Form, Nav, Newsletter, Results components into App.js - Then rendered them. Example: <Auth />
