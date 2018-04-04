@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './eventteller.png';
 import './App.css';
 import Auth from './component/Auth/Auth';
 import Dashboard from './component/Dashboard/Dashboard';
@@ -8,6 +8,7 @@ import Form from './component/Form/Form';
 import Nav from './component/Nav/Nav';
 import Newsletter from './component/Newsletter/Newsletter';
 import Results from './component/Results/Results';
+import Carousel  from './component/Carousel/Carousel';
 
 
 class App extends Component {
@@ -16,7 +17,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
         </header>
           <Auth />
           <Dashboard />
@@ -25,9 +25,13 @@ class App extends Component {
           <Nav />
           <Newsletter />
           <Results />
+          <div>
+            <Carousel />
+          </div>
       </div>
     );
   }
 }
+
 
 export default App;
