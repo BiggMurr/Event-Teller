@@ -11,7 +11,7 @@ import SliderImage4 from './SliderImages/slider4.png'
 class DemoCarousel extends Component {
     render() {
         return (
-            <Carousel autoPlay={true} interval={5000} infiniteLoop={true}>
+            <Carousel autoPlay={true} interval={5000} infiniteLoop={true} showThumbs={false}>
                 <div>
                     <img src={SliderImages} />
                     <p className="legend">Legend 1</p>

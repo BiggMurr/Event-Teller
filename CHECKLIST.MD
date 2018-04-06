@@ -1,5 +1,11 @@
 Going off of SIM 3
 
+    Wire Framing: https://wireframe.cc/9QbrUq
+    api from: https://developer.predicthq.com/api/quickstart/
+    Project Rubric: https://github.com/DevMountain/rubrics/blob/master/personal_project.md
+    Sim 3: https://github.com/devmountain/simulation-3
+    Button Tutorial: https://www.youtube.com/watch?v=XWnPjG3AP1o
+
 React Setup
 
     npm install - (DONE)
@@ -75,5 +81,41 @@ Created logo in Photo-Shop and then imported it into the website via .png. I the
 Created Carousel for homepage, pulled the code from https://www.npmjs.com/package/react-responsive-carousel
 
 Database Setup
+
+Routing
+
+    Opened the src/index.js file and 'brought in' (import) HashRouter from react-router-dom. import HashRouter from 'react-router-dom';
+    --
+    Then wrap App with HashRouter.
+
+    Now open routes.js. Bring in Switch and Route from react-router-dom. Also bring in the Auth, Dashboard, Form, Favorites, Newsletter, and Results components.
+
+
+    Set up the Switch Statement: Set up the Switch element as the default export of the file.
+    --
+    Inside the Switch, setup a Route for the components you brought in.
+
+    --> <!-- export default (
+    <Switch>
+        <Route exact path='/' component={Auth} />
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/form' component={Form} />
+        <Route path='/favorites' component={Favorites} />
+        <Route path='/newsletter' component={Newsletter} />
+        <Route path='/results' component={Results} />
+    </Switch>
+    )
+
+    Open App.js and change what you're bringing into the component.
+        Remove Auth, Dashboard, Form, and Post from the component.
+        Instead bring in routes from routes.js and render it instead of the other components.
+        The Nav component should remain, as this will show on almost every view.
+            The Nav component should not render if the current view is the Auth view (hint: use this.props.history to check which view the user is currently on).
+        If you open your application in the browser you should see the navbar in every view but Auth.
+
+
+    (Side note: I moved everything to the Nav Component. to me my header and logo and buttons in the Nav bar)
+
+
 
 

@@ -3,3 +3,36 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.btn {
+    display:inline-block;
+    border: none;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.btn-lg{
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.btn-success {
+    color: rgb(104, 135, 139);
+    background-color: #EDF4F5;
+}
+
+.btn-success:hover, 
+.btn-success:focus,
+.btn-active:active {
+    color: #fff;
+    background-color: #F78F1E;
+    border-color: rgb(224, 130, 28)
+}
