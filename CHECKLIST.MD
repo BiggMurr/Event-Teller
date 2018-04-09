@@ -117,5 +117,10 @@ Routing
     (Side note: I moved everything to the Nav Component. to me my header and logo and buttons in the Nav bar)
 
 
+Setting Up Auth0
+
+    
+
+
 
 

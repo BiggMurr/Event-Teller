@@ -25,9 +25,9 @@ export default function Nav() {
                     <Link to='/favorites'>
                         <button className="btn btn-success btn-lg">FAVORITES</button>
                     </Link>
-                    <Link to='/dashboard'>
-                        <button className="btn btn-success btn-lg">LOGIN</button>
-                    </Link>
+                    <a href={process.env.REACT_APP_LOGIN}>
+                        <button className='btn btn-success btn-lg'>LOGIN</button>
+                    </a>
                 </div>
             </nav>
             NAV
