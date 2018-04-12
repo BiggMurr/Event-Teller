@@ -17,8 +17,6 @@ const {
     CONNECTION_STRING
 } = process.env
 
-    
-
 const app = express()
 
 app.use(bodyParser.json());
@@ -52,35 +50,38 @@ passport.use( new Auth0Strategy({
                     profile.id,
                     profile.picture
                 ]).then(createdUser => {
-                    return done(null, createdUser[0].id)
+                    return done(null, createdUser[0])
                 })
             } else {
-                return done(null, userResult[0].id)
+                return done(null, userResult[0])
             }
         })
     }
 ) );
 
-passport.serializeUser((id, done) => {
-    done(null, id)
+passport.serializeUser((user, done) => {
+    done(null, user)
 });
 
-passport.deserializeUser((id, done) => {
-    app.get('db').find_session_user([id]).then(loggedInUser => {
-        done(null, loggedInUser[0]);
-    })
-});
+passport.deserializeUser((user, done) => {
+    done(null, user)
+})
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/',
     failureRedirect: 'http://localhost:3000'
-}))
+}), (req, res) => {
+    if (req.user && !req.session.user) {
+        req.session.user = req.user
+    } 
+    res.redirect('http://localhost:3000/#/')
+})
+
 app.get('/auth/me', function (req, res) {
-    if (req.user) {
-        res.status(200).send(req.user);
+    if (req.session.user) {
+        res.status(200).send(req.session.user);
     } else {
-        res.status(401).send('nice try suckaaaaaa')
+        res.status(401).send('nice try MY DUDE!!')
     }
 })
 

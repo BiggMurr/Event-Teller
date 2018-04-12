@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Event from './../Event/Event'
 
 import config from '../../config'
 
@@ -7,37 +8,54 @@ export default class Auth extends Component {
   constructor () {
       super ()
       this.state = {
-        category: 'sports',
+        postalCode: '',
+        events: [],
       }
-      this.getEventResults = this.getEventResults.bind(this)
+
+    this.searchAPI = this.searchAPI.bind(this)
     }
 
-    getEventResults () {
-        axios
-            .get(
-                `https://api.predicthq.com/v1/events?category=${this.state.category}&country=US`, 
-                { headers: { Authorization: `Bearer ${config.PREDICT_HQ_KEY}`}}
-            )
-            .then( res => { console.log(res)})
+    componentDidMount () {
+        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=
+            ${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
+                .then(res => { 
+                    // this.setState({ events: res.data.results })
+                    console.log(res.data)
+                })
     }
+
+    updatePostalCode (value) {
+        this.setState({postalCode: value})
+    }
+
+    searchAPI () {
+        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=
+            ${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
+            .then(res => {
+                // this.setState({ events: res.data.results })
+                console.log(res.data)
+                if (res.data._embedded) { this.setState({events: res.data._embedded.events})}
+            })
+    }
+    
 
 
     render() {
+
+        const events = this.state.events.map(event => { console.log(event)
+            return <Event key={event.id} data={event} />
+        }) 
+
+
         return (
             <div>
-                <select value={this.state.category} onChange={e => this.setState({category: e.target.value})}>
-                    <option value='school-holidays'>School Holidays</option>
-                    <option value='public-holidays'>Public Holidays</option>
-                    <option value='politics'>Politics</option>
-                    <option value='conferences'>Conferences</option>
-                    <option value='expos'>Expos</option>
-                    <option value='concerts'>Concerts</option>
-                    <option value='festivals'>Festivals</option>
-                    <option value='performing-arts'>Performing Arts</option>
-                    <option value='sports'>Sports</option>
-                    <option value='community'>Community</option>
-                </select>
-                <button className='btn btn-success btn-lg' onClick={this.getEventResults}>SEARCH</button>
+                <h2>ZIPCODE:</h2>
+                <input placeholder='zipcode' onChange={(e) => this.updatePostalCode(e.target.value)}/>
+                <button className='btn btn-success btn-lg' onClick={this.searchAPI}>SEARCH</button>
+
+                <br />
+                <br />
+                {events}
             </div>
         )
     }
