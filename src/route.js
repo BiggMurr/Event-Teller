@@ -15,7 +15,7 @@ export default (
         <Route exact path='/' component={Home} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/form' component={Form} />
-        <Route path='/favorites' component={Favorites} />
+        <Route path='/favorites' component={FavoriteDisplay} />
         <Route path='/newsletter' component={Newsletter} />
         <Route path='/results' component={Results} />
         <Route path='/login' component={Login} exact />
