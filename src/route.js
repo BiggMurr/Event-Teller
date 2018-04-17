@@ -9,6 +9,7 @@ import Results from './component/Results/Results';
 import Login from './component/Login/Login';
 import SuperFavorites from './component/SuperFavorites/SuperFavorites';
 import FavoriteDisplay from './component/FavoriteDisplay/FavoriteDisplay';
+//double check to make sure you need 'connect' imported in or if I'm still okay with were I'm at?
 
 export default (
     <Switch>

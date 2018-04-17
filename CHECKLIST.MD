@@ -5,6 +5,10 @@ Going off of SIM 3
     Project Rubric: https://github.com/DevMountain/rubrics/blob/master/personal_project.md
     Sim 3: https://github.com/devmountain/simulation-3
     Button Tutorial: https://www.youtube.com/watch?v=XWnPjG3AP1o
+    zip code to use: 
+    
+    J = // Go into DB and set 'super_favorites' to false on the given `event_id`
+    J = // Go into DB and set 'super_favorites' to true on the given `event_id`
 
 React Setup
 

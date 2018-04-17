@@ -8,6 +8,7 @@ const express = require('express')
     , Auth0Strategy = require('passport-auth0')
     , massive = require('massive')
     , cors = require('cors')
+    , axios = require('axios')
 
 const {
     SERVER_PORT,
@@ -22,7 +23,7 @@ const {
 const app = express()
 
 app.use(bodyParser.json());
-app.use(cors())
+// app.use(cors())
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
@@ -100,9 +101,14 @@ app.get('/auth/logout', (req, res) => {
 
 // My endpoints
 const favoritesBaseUrl = "/api/favorites";
+
 app.post(favoritesBaseUrl, controller.create);
 app.get(favoritesBaseUrl, controller.read);
-app.put(`${favoritesBaseUrl}/:id`, controller.update);
+app.patch('/api/set/favorite/:id', controller.makeFavorite);
+app.patch('/api/set/super_favorite/:id', controller.makeSuperFavorite)
 app.delete(`${favoritesBaseUrl}/:id`, controller.delete);
+
+app.get('/api/search/:zip', controller.searchZip)
+
 
 app.listen(SERVER_PORT, () => console.log(`0,0 is listening on port: ${SERVER_PORT}`))

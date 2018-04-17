@@ -1,2 +1,2 @@
-SELECT * FROM favorites;
-WHERE user_id=${id}
+SELECT * FROM favorites
+WHERE user_id=$1;

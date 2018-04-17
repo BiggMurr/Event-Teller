@@ -4,6 +4,7 @@ import Event from './../Event/Event'
 
 import config from '../../config'
 
+
 export default class Auth extends Component {
   constructor () {
       super ()
@@ -16,12 +17,11 @@ export default class Auth extends Component {
     }
 
     componentDidMount () {
-        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=
-            ${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
-                .then(res => { 
-                    // this.setState({ events: res.data.results })
-                    console.log(res.data)
-                })
+        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
+            .then(res => {
+                console.log(res)
+                this.setState({ events: res.data._embedded.events })
+            })
     }
 
     updatePostalCode (value) {
@@ -29,12 +29,10 @@ export default class Auth extends Component {
     }
 
     searchAPI () {
-        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=
-            ${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
+        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
             .then(res => {
-                // this.setState({ events: res.data.results })
+                this.setState({ events: res.data._embedded.events })
                 console.log(res.data)
-                if (res.data._embedded) { this.setState({events: res.data._embedded.events})}
             })
     }
     
