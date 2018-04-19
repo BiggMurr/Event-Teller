@@ -46,13 +46,12 @@ export default class Auth extends Component {
 
 
         return (
-            <div>
+            <div className="webtext">
                 <h2>ZIPCODE:</h2>
                 <input placeholder='zipcode' onChange={(e) => this.updatePostalCode(e.target.value)}/>
                 <button className='btn btn-success btn-lg' onClick={this.searchAPI}>SEARCH</button>
-
                 <br />
-                <br />
+                <h1>RESULTS</h1>
                 {events}
             </div>
         )

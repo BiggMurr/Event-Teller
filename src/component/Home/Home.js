@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Carousel from './../Carousel/Carousel';
 import cityLogo from './../../assets/homecityflyover.png'
 
 export default class Home extends Component {
     render() {
         return(
-            <div>
+            <div className="webtext">
                 HOME
                     <Carousel />
                     <div className="homeSearch" >

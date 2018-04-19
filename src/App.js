@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './reset.css'
 import './App.css';
 import Nav from './component/Nav/Nav';
 import route from './../src/route';

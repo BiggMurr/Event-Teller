@@ -121,9 +121,52 @@ Routing
     (Side note: I moved everything to the Nav Component. to me my header and logo and buttons in the Nav bar)
 
 
-Setting Up Auth0
+Setting Up Auth0 -
 
-    
+
+
+SQL Input: 
+
+        -- ALTER TABLE favorites;
+        -- ADD super_favorites BOOLEAN;
+
+        -- ALTER TABLE ONLY favorites ALTER COLUMN super_favorites SET DEFAULT false;
+
+
+        -- SELECT * FROM favorites;
+
+        -- UPDATE favorites SET super_favorites = false WHERE super_favorites IS null; 
+
+        -- INSERT INTO favorites (
+        --     user_id,
+        --     event_name,
+        --     event_url,
+        --     event_image,
+        --     event_start,
+        --     event_min_price,
+        --     event_max_price,
+        --     venue_url,
+        --     venue_image,
+        --     venue_name
+        -- )
+        -- VALUES
+        -- (
+        --     2,
+        --     'awesome event',
+        --     'http://event.com',
+        --     'https://cdn.fstoppers.com/wp-content/uploads/2013/06/1.jpg',
+        --     '2018-04-03',
+        --     44.5,
+        --     88.6,
+        --     'http://www.ticketmaster.com/downtown-las-vegas-events-center-tickets-las-vegas/venue/189394',
+        --     'https://s1.ticketm.net/dbimages/20046v.jpg',
+        --     'my venue'
+        -- )
+
+
+        -- UPDATE favorites SET super_favorites = true WHERE id = 6;
+        SELECT * FROM favorites;
+            
 
 
 

@@ -10,6 +10,8 @@ const express = require('express')
     , cors = require('cors')
     , axios = require('axios')
 
+
+
 const {
     SERVER_PORT,
     SESSION_SECRET,
@@ -21,6 +23,8 @@ const {
 } = process.env
 
 const app = express()
+
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(bodyParser.json());
 // app.use(cors())
@@ -72,6 +76,7 @@ passport.deserializeUser((user, done) => {
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: process.env.SUCCESS_REDIRECT,
     failureRedirect: 'http://localhost:3000'
 }), (req, res) => {
     if(!req.user) {

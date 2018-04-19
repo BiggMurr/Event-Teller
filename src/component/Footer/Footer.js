@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/eventteller.png';
-import route from './../../route';
+// import route from './../../route';
 import './Footer.css'
 
 export default function Footer(){
