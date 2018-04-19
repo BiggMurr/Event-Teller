@@ -29,16 +29,19 @@ app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json());
 // app.use(cors())
 
+//massive__________________________________
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
 })
 
+//session__________________________________
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }));
 
+// Auth0____________________________________
 app.use(passport.initialize())
 app.use(passport.session())
 passport.use(new Auth0Strategy({
