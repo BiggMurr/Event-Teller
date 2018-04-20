@@ -33,9 +33,6 @@ export default class FavoriteDisplay extends Component {
             })
     }
 
-    //I need take all the data amd make a favorites array [] and a super favorites []. Then I will need to LOOP through the data and push them to the separate array's. 
-    //Then pass it down as PROPS in the RENDER Statement.
-
 
     render() {
             
