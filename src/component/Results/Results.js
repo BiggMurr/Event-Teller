@@ -40,9 +40,9 @@ export default class Results extends Component {
 
 
     render() {
-        console.log(this.state.events, 'I hate my life <3')
+        console.log(this.state.events, 'I love my life <3')
         const events = this.state.events.map(event => {
-            // console.log("Mira is a Rockstar",event)
+            // console.log("Rockstar",event)
             return <Event key={event.id} data={event} />
         })
 

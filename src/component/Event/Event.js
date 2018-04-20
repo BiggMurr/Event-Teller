@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import swal from 'sweetalert2'
 
 export default class Event extends Component {
    constructor (props) {
@@ -10,15 +11,29 @@ export default class Event extends Component {
    }
 
     favoriteEvent () {
-        console.log('THIS.PROPS.DATA', this.props.data)
+        // console.log('THIS.PROPS.DATA', this.props.data)
         axios.post('/api/favorites', this.props.data).then(res => {
             console.log("Murray can't figure this out!", res)
+            swal({
+                position: 'top-end',
+                type: 'success',
+                title: 'Your event has been Favorited!',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }).catch(err => {
             console.log(err)
         })
     }
 
-    
+    // superFavoriteEvent () {
+    //     console.log('THIS.PROPS.DATA', this.props.data)
+    //     axios.put('/api/favorites').then(res => {
+    //         console.log("SuperFavorites BETTER WORK!!", res)
+    //     }).catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
     render() {
         // console.log(this.props.data.dates.start)
@@ -36,7 +51,7 @@ export default class Event extends Component {
                 </div>
                 <div className="results4">
                     <button className='btn btn-success btn-lg' onClick={()=> this.favoriteEvent()} > Favorite Event</button>
-                    <button className='btn btn-success btn-lg' > Super Favorite Event</button>
+                    {/* <button className='btn btn-success btn-lg' onClick={()=> this.superFavoriteEvent()}> Super Favorite Event</button> */}
                 </div>
                 <br />
                 <br />

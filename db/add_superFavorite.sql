@@ -1,4 +1,3 @@
-SELECT * FROM favorites
-WHERE user_id=$1
-ALTER TABLE favorites
-ALTER COLUMN super_favorites 'true';
+UPDATE favorites
+SET super_favorites = true
+WHERE id = $1 AND user_id = $2

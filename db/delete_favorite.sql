@@ -1,3 +1,3 @@
 DELETE FROM favorites
 WHERE user_id=$1
-AND WHERE id=$2;
+AND id=$2;

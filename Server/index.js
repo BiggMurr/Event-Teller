@@ -112,6 +112,7 @@ const favoritesBaseUrl = "/api/favorites";
 
 app.post(favoritesBaseUrl, controller.create);
 app.get(favoritesBaseUrl, controller.read);
+app.put('/api/favorites/:id', controller.makeSuperFavorite);
 app.patch('/api/set/favorite/:id', controller.makeFavorite);
 app.patch('/api/set/super_favorite/:id', controller.makeSuperFavorite)
 app.delete(`${favoritesBaseUrl}/:id`, controller.delete);

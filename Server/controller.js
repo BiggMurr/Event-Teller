@@ -3,23 +3,8 @@ module.exports = {
     create: (req, res) => {
         // console.log("Hello!", req.body)
         const db = req.app.get('db');
-        console.log( 'DB', db )
-
-        console.log('HEY THIS IS WHERE YOU WANT TO LOOK',
-            // req.user.id,
-            // req.body.name,
-            // req.body.url,
-            req.body.images[0].url,
-            req.body.dates.start.localDate,
-            // req.body.priceRanges[0].min,
-            // req.body.priceRanges[0].max,
-            // req.body._embedded.venues[0].url,
-            // req.body._embedded.venues[0].images[0].url,
-            // req.body._embedded.venues[0].name
-        )
-
-
-
+        
+//Post________
         db.create_favorites({
             user_id: req.user.id,
             event_name: req.body.name,
@@ -38,14 +23,21 @@ module.exports = {
                 res.status(500).send(err)})
     },
 
+    
+
+//Get________
     read: (req, res) => {
         const db = req.app.get('db');
         console.log(req.user.id)
         db.get_favorites([req.user.id ])
             .then((favorites) => res.status(200).send(favorites))
-            .catch(err => res.status(500).send(err))
+            .catch(err => {
+                console.log(err)
+                res.status(500).send(err)
+            })
     }, 
 
+//Patch______
     makeFavorite: (req, res) => {
         const db = req.app.get('db');
         console.log(req.user.id)
@@ -54,19 +46,35 @@ module.exports = {
             .catch(err => res.status(500).send(err))
     },
 
+
+//Patch______
     makeSuperFavorite: (req, res) => {
         const db = req.app.get('db');
-        console.log(req.user.id)
-        db.add_superFavorite([req.user.id])
-            .then((favorites) => res.status(200).send(favorites))
-            .catch(err => res.status(500).send(err))
+        console.log(req.user.id, req.params.id)
+        db.add_superFavorite([req.params.id, req.user.id])
+            .then((favorites) => {
+                req.app.get('db').get_favorites([req.user.id]).then((results)=> {
+                    res.status(200).send(results)
+                })
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(500).send(err)
+            })
     },
-    
+
+//Delete______
     delete: (req, res) => {
+        console.log(req.params.id, req.user.id)
         const db = req.app.get('db');
-        db.delete_favorite([ req.body.user_id, req.body.id])
-            .then((favorites) => res.status(200).send(favorites))
-            .catch(err => res.status(500).send(err))
+        db.delete_favorite([ req.user.id, req.params.id])
+            .then((favorites) => {
+                res.status(200).send(favorites)
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(500).send(err)
+            })
         // const deleteID = req.params.id;
         // favoritesIndex = favorites.findIndex( favorite => favorites.id == deleteID );
         // favorites.splice(favoritesIndex, 1);
