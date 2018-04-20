@@ -73,7 +73,7 @@ passport.serializeUser((user, done) => {
 
 
 passport.deserializeUser((user, done) => {
-    console.log('deserializeUser fired:', user)
+    // console.log('deserializeUser fired:', user)
     done(null, user)
 })
 
@@ -83,7 +83,7 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: 'http://localhost:3000'
 }), (req, res) => {
     if(!req.user) {
-        console.error('Passport did not set a user on req.user')
+        // console.error('Passport did not set a user on req.user')
     }
 
     res.redirect('/auth/me')
@@ -91,9 +91,9 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 
 app.get('/auth/me', function (req, res) {
     if (req.user) {
-        console.log('USER FOUND ON SESSION', req.user)
+        // console.log('USER FOUND ON SESSION', req.user)
         if (!req.session.user) {
-            console.log('SETTING USER ON SESSION')
+            // console.log('SETTING USER ON SESSION')
             req.session.user = req.user
         }
         return res.status(200).send(req.user)

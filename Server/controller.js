@@ -1,24 +1,41 @@
 module.exports = {
 
     create: (req, res) => {
+        // console.log("Hello!", req.body)
         const db = req.app.get('db');
+        console.log( 'DB', db )
+
+        console.log('HEY THIS IS WHERE YOU WANT TO LOOK',
+            // req.user.id,
+            // req.body.name,
+            // req.body.url,
+            req.body.images[0].url,
+            req.body.dates.start.localDate,
+            // req.body.priceRanges[0].min,
+            // req.body.priceRanges[0].max,
+            // req.body._embedded.venues[0].url,
+            // req.body._embedded.venues[0].images[0].url,
+            // req.body._embedded.venues[0].name
+        )
+
+
 
         db.create_favorites({
-            user_id: req.body.user_id,
-            event_name: req.body.event_name,
-            event_url: req.body.event_url,
-            event_image: req.body.event_image,
-            event_start: req.body.event_start,
-            event_min_price: req.body.event_min_price,
-            event_max_price: req.body.event_max_price,
-            venue_url: req.body.venue_url,
-            venue_image: req.body.venue_image,
-            venue_name: req.body.venue_name
-        }).then((favorites) => res.status(200).send(favorites))
+            user_id: req.user.id,
+            event_name: req.body.name,
+            event_url: req.body.url,
+            event_image: req.body.images[0].url,
+            event_start: req.body.dates.start.localDate,
+            event_min_price: req.body.priceRanges[0].min,
+            event_max_price: req.body.priceRanges[0].max,
+            venue_url: req.body._embedded.venues[0].url,
+            venue_image: req.body._embedded.venues[0].images[0].url,
+            venue_name: req.body._embedded.venues[0].name
+        }).then((favorites) => { console.log( 'LOOK HERE YOU DUMMIES',favorites )
+            res.sendStatus( 200 )})
             .catch((err) => {
                 console.log(err);
-                res.status(500).send(err)
-            })
+                res.status(500).send(err)})
     },
 
     read: (req, res) => {

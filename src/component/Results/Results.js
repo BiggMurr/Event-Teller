@@ -5,7 +5,7 @@ import Event from './../Event/Event'
 import config from '../../config'
 
 
-export default class Auth extends Component {
+export default class Results extends Component {
     constructor() {
         super()
         this.state = {
@@ -19,9 +19,10 @@ export default class Auth extends Component {
     componentDidMount() {
         axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 this.setState({ events: res.data._embedded.events })
-            })
+                console.log("DEATH IS THE ONLY OPTION!", this.state.events)
+            }) 
     }
 
     updatePostalCode(value) {
@@ -39,9 +40,9 @@ export default class Auth extends Component {
 
 
     render() {
-
+        console.log(this.state.events, 'I hate my life <3')
         const events = this.state.events.map(event => {
-            console.log(event)
+            // console.log("Mira is a Rockstar",event)
             return <Event key={event.id} data={event} />
         })
 
