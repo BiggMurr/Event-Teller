@@ -48,7 +48,7 @@ export default class Favorites extends Component {
     render() {
         return (
             <div className="webtext">
-                <div>
+                <div className="supfav">
                     <h1>FAVORITE EVENTS</h1>
                     {this.props.data.map(favorite => {
                         console.log("Favorites here", favorite)

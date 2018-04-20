@@ -1,5 +1,6 @@
 .supfav {
     width: 100vw;
+    padding: 20px;
 }
 
 h1 {
@@ -34,7 +35,7 @@ h3 {
     justify-content: flex-start;
     justify-content: space-evenly;
     /* align-items: flex-start; */
-    background-color: red;
+    /* background-color: red; */
     height: 100%;
     width: 35%;
     padding: 10px;
@@ -70,10 +71,56 @@ h3 {
     display: flex;
     align-content: center;
     justify-content: center;
-    justify-content: space-evenly;
     height: 210px;
     width: 100%;
     background-color: rgb(250, 237, 224);
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.results1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    /* align-items: flex-start; */
+    /* background-color: red; */
+    height: 100%;
+    width: 35%;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.results2 {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-end;
+    /* background-color: blue; */
+    width: 300px;
+    float: left;
+}
+
+.results3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    /* background-color: royalblue; */
+    height: 100%;
+    width: 35%;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.results4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 300px;
+}
+
+.zipcodeInput {
+    padding: 12px;
+    width: 200px;
 }

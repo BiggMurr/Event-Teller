@@ -13,8 +13,10 @@ export default function Footer(){
                 </Link>
             </div>
             <div className='footer-bar-right'>
+            <Link to='/profile'>
                 <button className="btn btn-success btn-lg">PROFILE</button>
-                <button className="btn btn-success btn-lg">LOGOUT</button>
+                </Link>
+                <button className="btn btn-success btn-lg"><a href="http://localhost:3002/auth/logout">LOGOUT</a></button>
             </div>
         </footer>
     )

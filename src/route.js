@@ -9,6 +9,7 @@ import Results from './component/Results/Results';
 import Login from './component/Login/Login';
 import SuperFavorites from './component/SuperFavorites/SuperFavorites';
 import FavoriteDisplay from './component/FavoriteDisplay/FavoriteDisplay';
+import Profile from './component/Profile/Profile';
 //double check to make sure you need 'connect' imported in or if I'm still okay with were I'm at?
 
 export default (
@@ -22,5 +23,6 @@ export default (
         <Route path='/login' component={Login} exact />
         <Route path='/superfavorites' component={SuperFavorites} />
         <Route path='/favoritedisplay' component={FavoriteDisplay} />
+        <Route path='/profile' component={Profile} />
     </Switch>
 )
