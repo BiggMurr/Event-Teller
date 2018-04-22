@@ -7,6 +7,7 @@ import './reset.css';
 
 import store from './ducks/store'
 import { Provider } from 'react-redux'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 // import axios from 'axios'
 

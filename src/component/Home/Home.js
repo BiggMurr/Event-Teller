@@ -7,13 +7,14 @@ export default class Home extends Component {
     render() {
         return(
             <div className="webtext">
-                HOME
                     <Carousel />
                     <div className="homeSearch" >
+                    <br />
                             <img src={cityLogo} className="" alt="logo" width="200px" />
                         SEARCH/ ACCOUNT 'MIDDLE' 
                         PARAGRAPH CONTENT 'RIGHT'
                     </div>
+
             </div>
                 
         )
