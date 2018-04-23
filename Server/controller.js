@@ -53,9 +53,10 @@ module.exports = {
         console.log(req.user.id, req.params.id)
         db.add_superFavorite([req.params.id, req.user.id])
             .then((favorites) => {
-                req.app.get('db').get_favorites([req.user.id]).then((results)=> {
-                    res.status(200).send(results)
-                })
+                // req.app.get('db').get_favorites([req.user.id]).then((results)=> {
+                //     res.status(200).send(results)
+                // })
+                res.status(200).send(favorites[0])
             })
             .catch(err => {
                 console.log(err)

@@ -1,51 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './Favorites.css'
-import swal from 'sweetalert2'
-
-
 
 
 export default class Favorites extends Component {
-constructor(props) {
-    super(props)
-
-    this.state = {
-        favorites: props.data,
-    }
-}
-
-
-    superFavoriteEvent(id) {
-        // console.log('THIS.PROPS.DATA', this.props.data)
-        console.log(id)
-        axios.put(`/api/favorites/${id}`).then(res => {
-            swal({
-                position: 'top-end',
-                type: 'success',
-                title: 'SUPER FAVORITED!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            console.log("SuperFavorites BETTER WORK!!", res)
-        }).catch(err => {
-            console.log(err)
-        })
-    }
-
-    delete(id){
-        axios.delete(`/api/favorites/${id}`).then(res => {
-            swal({
-                position: 'top-end',
-                type: 'success',
-                title: 'Deleted!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        })
-    }
-
-
     render() {
         return (
             <div className="webtext">
@@ -67,8 +24,8 @@ constructor(props) {
                                 <div className="container3" >
                                 <h3>{favorite.venue_name}</h3>
                                 <p>{favorite.venue_url} </p>
-                                    <button className='btn btn-success btn-lg' onClick={(id) => this.superFavoriteEvent(favorite.id)}>Super Favorite Event</button>
-                                    <button className='btn btn-success btn-lg' onClick={() => this.delete(favorite.id)}>Delete</button> 
+                                    <button className='btn btn-success btn-lg' onClick={(id) => this.props.superFavoriteFn(favorite.id)}>Super Favorite Event</button>
+                                    <button className='btn btn-success btn-lg' onClick={() => this.props.deleteFavoriteFn(favorite.id, false)}>Delete</button> 
                                 </div>
                                 <img src={favorite.venue_image} width='200px' alt="" className="container4" />
                             </div>

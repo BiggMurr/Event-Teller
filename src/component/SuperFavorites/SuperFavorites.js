@@ -1,30 +1,7 @@
 import React, { Component } from 'react';
 import './SuperFavorites.css'
-import axios from 'axios';
-import swal from 'sweetalert2'
-
-
 
 export default class SuperFavorites extends Component {
-    constructor(props) {
-        super(props)
-
-
-    }
-
-    delete(id) {
-        axios.delete(`api/favorites/${id}`).then(res => {
-            swal({
-                position: 'top-end',
-                type: 'success',
-                title: 'Deleted!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        })
-    }
-
-
     render() {
         return (
             <div className="webtext">
@@ -46,7 +23,7 @@ export default class SuperFavorites extends Component {
                                 <div className="container3">
                                     <h3>{superFavorites.venue_name}</h3>
                                     <p>{superFavorites.venue_url}</p>
-                                    <button className='btn btn-success btn-lg' onClick={() => this.delete(superFavorites.id)}>
+                                    <button className='btn btn-success btn-lg' onClick={() => this.props.deleteFavoriteFn(superFavorites.id, true)}>
                                         Delete</button> 
                                 </div>
                                 <img src={superFavorites.venue_image} width='200px' alt="" className="container4" />

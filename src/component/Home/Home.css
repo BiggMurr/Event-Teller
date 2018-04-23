@@ -1,4 +1,106 @@
-.homeSearch {
+@import url('https://fonts.googleapis.com/css?family=Dosis:600');
+
+.section2{
+    width: 75%;
+    height: 275px;
+    /* background-color: plum; */
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.homepageCityImg {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 33%;
+    margin-left: 20px;
+}
+
+
+.homeSearch {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 275px;
+    font-family: "Dosis";
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.homeText {
+    font-family: "Dosis";
+    font-size: 27px;
+    /* width: 400px; */
+    height: 100%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lineBreak {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3px;
+    width: 93%;
+    background-color: #054950;
+    box-sizing: border-box;
+    padding: 0px 30px;
+
+}
+
+.testimonials {
+    font-family: "Dosis";
+    font-size: 18px;
+    text-align: left;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.names {
+    text-align: right;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.testimonial1 {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.testimonial2 {
+    margin-right: 20px;
+}
+
+.testIntro {
+    font-family: "Dosis";
+    font-size: 50px;
+    margin-bottom: 25px;
+    color: #075a63;
+}
+.lineBreak2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3px;
+    width: 55vw;
+    background-color: #F78F1E;
+    box-sizing: border-box;
+    padding: 0px 30px;
+
 }

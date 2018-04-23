@@ -16,14 +16,14 @@ export default class Results extends Component {
         this.searchAPI = this.searchAPI.bind(this)
     }
 
-    componentDidMount() {
-        axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
-            .then(res => {
-                // console.log(res)
-                this.setState({ events: res.data._embedded.events })
-                console.log("DEATH IS THE ONLY OPTION!", this.state.events)
-            }) 
-    }
+    // componentDidMount() {
+    //     axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${config.TICKETMASTER_API_KEY}&postalCode=${this.state.postalCode}`)
+    //         .then(res => {
+    //             // console.log(res)
+    //             this.setState({ events: res.data._embedded.events })
+    //             console.log("DEATH IS THE ONLY OPTION!", this.state.events)
+    //         }) 
+    // }
 
     updatePostalCode(value) {
         this.setState({ postalCode: value })

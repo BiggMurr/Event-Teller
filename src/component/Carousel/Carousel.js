@@ -14,19 +14,19 @@ class DemoCarousel extends Component {
             <Carousel autoPlay={true} interval={5000} infiniteLoop={true} showThumbs={false}>
                 <div>
                     <img src={SliderImages} alt="" />
-                    <p className="legend">Legend 1</p>
+                    {/* <p className="legend">testing!!!</p> */}
                 </div>
                 <div>
                     <img src={SliderImage2} alt="" />
-                    <p className="legend">Legend 2</p>
+                    {/* <p className="legend">Legend 2</p> */}
                 </div>
                 <div>
                     <img src={SliderImage3} alt="" />
-                    <p className="legend">Legend 3</p>
+                    {/* <p className="legend">Legend 3</p> */}
                 </div>
                 <div>
                     <img src={SliderImage4} alt="" />
-                    <p className="legend">Legend 4</p>
+                    {/* <p className="legend">Legend 4</p> */}
                 </div>
             </Carousel>
         );
