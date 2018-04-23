@@ -70,6 +70,7 @@ export default class Home extends Component {
                                 <div className="sec2col1">
                         <img src={vegasLogo} alt="logoVegas" width="275px" />
                         <p>LAS VEGAS, NV</p>
+                        
                         <p className="sec2col1text">Las Vegas Strip</p>
                                 </div>
                                 <div className="sec2col2">
