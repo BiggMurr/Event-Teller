@@ -13,7 +13,7 @@ export default class Event extends Component {
     favoriteEvent () {
         // console.log('THIS.PROPS.DATA', this.props.data)
         axios.post('/api/favorites', this.props.data).then(res => {
-            console.log("Murray can't figure this out!", res)
+            // console.log("Murray can't figure this out!", res)
             swal({
                 position: 'top-end',
                 type: 'success',
@@ -46,7 +46,9 @@ export default class Event extends Component {
                 </div>
                 <img src={this.props.data.images[0].url} width='200px' alt="" className="results2" />
                 <div className="results3">
+                    <p>Date:</p>
                     <p>{this.props.data.dates.start.localDate}</p>
+                    <p>Time:</p>
                     <p>{time}</p>
                 </div>
                 <div className="results4">

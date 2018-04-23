@@ -15,15 +15,15 @@ export default class Favorites extends Component {
                                 <div className='container1'>
                                     <span>{favorite.event_id}</span>
                                     <h2>{favorite.event_name}</h2>
-                                    <p><a href={favorite.event_url}>{favorite.event_url}</a></p>
+                                    <p><a href={favorite.event_url}>Buy Your Tickets Here!</a></p>
                                     <p>{favorite.event_start_date} </p>
-                                    <p>${favorite.event_min_price} </p>
-                                    <p>${favorite.event_max_price} </p>
+                                    <p>Starting Price - ${favorite.event_min_price} </p>
+                                    <p>Max Price - ${favorite.event_max_price} </p>
                                 </div>
                                 <img src={favorite.event_image} width='200px' alt="" className="container2" />
                                 <div className="container3" >
                                 <h3>{favorite.venue_name}</h3>
-                                <p>{favorite.venue_url} </p>
+                                <p><a href={favorite.venue_url}>Venue Info</a> </p>
                                     <button className='btn btn-success btn-lg' onClick={(id) => this.props.superFavoriteFn(favorite.id)}>Super Favorite Event</button>
                                     <button className='btn btn-success btn-lg' onClick={() => this.props.deleteFavoriteFn(favorite.id, false)}>Delete</button> 
                                 </div>

@@ -10,6 +10,53 @@
     align-items: center;
 }
 
+.section3 {
+    width: 75%;
+    height: 325px;
+    /* background-color: plum; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sec2col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    /* background-color: red; */
+    height: 100%;
+    width: 35%;
+    padding: 10px;
+    font-family: "Dosis";
+    font-style: italic;
+    font-size: 35px;
+}
+
+.sec2col1text {
+    font-family: "Dosis";
+    font-style: italic;
+    font-size: 20px;
+}
+
+.sec2col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    /* background-color: blue; */
+    height: 100%;
+    width: 35%;
+    padding: 10px;
+    font-family: "Dosis";
+    font-style: italic;
+    font-size: 35px;
+}
+
 .homepageCityImg {
     display: flex;
     flex-direction: column;
@@ -61,6 +108,7 @@
 
 .testimonials {
     font-family: "Dosis";
+    font-style: italic;
     font-size: 18px;
     text-align: left;
     width: 60%;
